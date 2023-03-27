@@ -1,0 +1,37 @@
+.notFound-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  h1 {
+    font-family: $font-700;
+    font-size: 288px;
+    padding-top: 100px;
+  }
+  h2 {
+    font-family: $font-500;
+    font-weight: 500;
+    font-size: 36px;
+    padding: 20px 0 150px 0;
+  }
+
+  p {
+    position: relative;
+    font-size: 18px;
+    color: $color-1;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: $color-1;
+      height: 1px;
+      width: 100%;
+    }
+    &:hover {
+      background: $color-1;
+      color: white;
+    }
+  }
+}

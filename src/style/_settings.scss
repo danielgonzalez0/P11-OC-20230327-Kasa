@@ -30,16 +30,23 @@ $color-bg: #ffffff;
   border: none;
   text-decoration: none;
 
-    &::selection {
+  &::selection {
     color: $color-2;
     background: $color-1;
+  }
+
+  &:focus-visible {
+    outline: solid 2px $color-1;
   }
 }
 
 body {
   font-family: $font-500;
-  margin: 0 100px;
-  height: 100vh;
   background-color: $color-bg;
   color: $color-1;
+}
+
+.wrapper {
+  margin: 0 100px;
+  height: 100vh;
 }
