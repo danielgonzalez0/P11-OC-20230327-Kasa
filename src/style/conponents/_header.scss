@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+
+  .navigation {
+    width: 50%;
+    max-width: 300px;
+    ul {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 56px;
+      font-family: $font-500;
+      font-size: 24px;
+      li {
+        color: $color-1;
+        position: relative;
+        &:hover {
+          background: $color-1;
+          color: white;
+        }
+      }
+
+      .nav-active li:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: $color-1;
+        height: 1px;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import Logo from '../components/Logo';
+import Navigation from '../components/Navigation';
 
 const Home = () => {
-const [data, setData]=useState([])
+//   const [data, setData] = useState([]);
 
-
-
-    return (
-        <div>
-            <h1>home</h1>
-        </div>
-    );
+  useEffect(() => {}, []);
+  return (
+    <div>
+      <header>
+        <Logo />
+        <Navigation />
+      </header>
+      <h1>home</h1>
+    </div>
+  );
 };
 
 export default Home;
