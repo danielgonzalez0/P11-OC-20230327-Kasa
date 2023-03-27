@@ -58,30 +58,14 @@ body {
   color: #ffffff;
   border-radius: 5px;
   font-size: 24px;
-  transition: all 0.5s;
+  transition: ease-in-out 0.4s;
   position: relative;
   z-index: 1;
   cursor: pointer;
 
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: darken($color-1, 25%);
-    transition: all 0.5s;
-    border-radius: 5px;
-    z-index: -1;
-  }
-
-  &:focus-visible {
-    outline: solid 2px black;
-  }
+  &:focus-visible,
   &:hover {
-    &:before {
-      width: 100%;
-    }
+    background: darken($color-1, 25%);
+    outline: none;
   }
 }
