@@ -48,5 +48,40 @@ body {
 
 .wrapper {
   margin: 0 100px;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.btn {
+  display: inline-block;
+  background: $color-1;
+  padding: 13px 20px;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 24px;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($color-1, 25%);
+    transition: all 0.5s;
+    border-radius: 5px;
+    z-index: -1;
+  }
+
+  &:focus-visible {
+    outline: solid 2px black;
+  }
+  &:hover {
+    &:before {
+      width: 100%;
+    }
+  }
 }
