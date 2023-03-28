@@ -1,0 +1,28 @@
+.card-container {
+  flex: 0 0 25%;
+  min-width: 335px;
+  max-width: 345px;
+  height: 340px;
+  border-radius: 10%;
+  background: center / cover;
+  position: relative;
+
+  .card-filter {
+    background: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+  }
+
+  p {
+    position: absolute;
+    min-height: 50px;
+    bottom: 20px;
+    left: 0;
+    color: white;
+    width: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

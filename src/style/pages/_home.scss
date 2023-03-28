@@ -1,0 +1,26 @@
+#home {
+  .banner {
+    margin: 43px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../assets/img/bg-sea.png) center / cover
+      rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    color: white;
+    font-family: $font-400;
+    font-weight: 500;
+    font-size: 48px;
+  }
+  main {
+    padding: 50px;
+    background: $color-2;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-bottom: 43px;
+  }
+}

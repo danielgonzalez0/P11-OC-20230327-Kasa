@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DropdownAbout = ({ title, desc }) => {
+const Dropdown = ({ title, desc }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -16,4 +16,4 @@ const DropdownAbout = ({ title, desc }) => {
   );
 };
 
-export default DropdownAbout;
+export default Dropdown;

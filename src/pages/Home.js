@@ -1,20 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
+import logement from '../data/logements.json';
 
 const Home = () => {
-  //   const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setData(logement);
+  }, []);
+
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper" id="home">
         <header>
           <Logo />
           <Navigation />
         </header>
-        <h1>home</h1>
+        <div className="banner" role="banner">
+          <h1>Chez vous, partout et ailleurs</h1>
+        </div>
+        <main>
+          {data.map((flat) => (
+            <Card key={flat.id} flat={flat} />
+          ))}
+        </main>
       </div>
       <Footer />
     </>
