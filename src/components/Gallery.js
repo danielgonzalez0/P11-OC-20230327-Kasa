@@ -8,19 +8,40 @@ const Gallery = ({ gallery }) => {
     setGalleryArray(gallery);
   }, [gallery]);
 
+  const handleCountAdd = () => {
+    if (galleryArray) {
+      if (count < galleryArray.length - 1) setCount(count + 1);
+      if (count === galleryArray.length - 1) setCount(0);
+    }
+  };
+
+  const handleCountRemove = () => {
+    if (galleryArray) {
+      if (count > 0) setCount(count - 1);
+      if (count === 0) setCount(galleryArray.length - 1);
+    }
+  };
+
   return (
     <div className="gallery-container">
-      <button className="btn btn-left">
-        <span className="fa-solid fa-angle-left"></span>
-      </button>
-      <button className="btn btn-right">
-        <span className="fa-solid fa-angle-right"></span>
-      </button>
+      {galleryArray && galleryArray.length > 1 && (
+        <button className="btn btn-left" onClick={handleCountRemove}>
+          <span className="fa-solid fa-angle-left"></span>
+        </button>
+      )}
+      {galleryArray && galleryArray.length > 1 && (
+        <button className="btn btn-right" onClick={handleCountAdd}>
+          <span className="fa-solid fa-angle-right"></span>
+        </button>
+      )}
       {galleryArray && (
         <img
           src={galleryArray[count]}
-          alt={`image ${count + 1} sur ${galleryArray.length}`}
+          alt={`appartement ${count + 1} sur ${galleryArray.length}`}
         />
+      )}
+      {galleryArray && galleryArray.length > 1 && (
+        <span className="counter">{count + 1 + '/' + galleryArray.length}</span>
       )}
     </div>
   );
