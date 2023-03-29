@@ -3,6 +3,7 @@
   height: 415px;
   border-radius: 25px;
   position: relative;
+  margin-top: 25px;
 
   img {
     width: 100%;
@@ -13,16 +14,25 @@
 
   .btn-left,
   .btn-right {
+    font-size: 90px;
     position: absolute;
+    background: none;
     top: 50%;
     transform: translateY(-50%);
+    color: white;
+    &:focus-visible {
+      color: $color-1;
+    }
+    &:active, &:hover {
+    color:darken($color-1, 25%);
+    }
   }
 
   .btn-right {
-    right: 0;
+    right: 20px;
   }
   .btn-left {
-    left: 0;
+    left: 20px;
   }
 
   .counter {

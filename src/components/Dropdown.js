@@ -11,7 +11,16 @@ const Dropdown = ({ title, desc }) => {
           className={open ? 'fa-solid fa-angle-up' : 'fa-solid fa-angle-down'}
         ></i>
       </button>
-      {open && <p>{desc}</p>}
+      {open &&
+        (!Array.isArray(desc) ? (
+          <p>{desc}</p>
+        ) : (
+          <ul>
+            {desc.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        ))}
     </div>
   );
 };

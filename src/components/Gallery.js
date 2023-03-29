@@ -25,12 +25,12 @@ const Gallery = ({ gallery }) => {
   return (
     <div className="gallery-container">
       {galleryArray && galleryArray.length > 1 && (
-        <button className="btn btn-left" onClick={handleCountRemove}>
+        <button className="btn-left" onClick={handleCountRemove}>
           <span className="fa-solid fa-angle-left"></span>
         </button>
       )}
       {galleryArray && galleryArray.length > 1 && (
-        <button className="btn btn-right" onClick={handleCountAdd}>
+        <button className="btn-right" onClick={handleCountAdd}>
           <span className="fa-solid fa-angle-right"></span>
         </button>
       )}

@@ -76,3 +76,14 @@ body {
   background-blend-mode: darken;
   border-radius: 25px;
 }
+
+.tag {
+  color: #ffffff;
+  text-align: center;
+  font-family: $font-400;
+  font-size: 14px;
+  font-weight: 500;
+  background: $color-1;
+  border-radius: 10px;
+  padding: 6px 10px;
+}

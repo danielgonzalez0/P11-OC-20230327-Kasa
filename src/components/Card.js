@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Card = ({ flat }) => {
+
   return (
     <NavLink to={'/flat/' + flat.id} state={{ from: flat }}>
       <div
