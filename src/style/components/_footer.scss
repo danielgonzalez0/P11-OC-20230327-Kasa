@@ -7,8 +7,15 @@ footer {
   justify-content: center;
   gap: 40px;
   height: 209px;
-  width: 100vw;
+  width: 100%;
   span {
     font-size: 24px;
+  }
+}
+@media screen and (max-width: 550px) {
+  footer{
+      span {
+    font-size: 12px;
+  }
   }
 }

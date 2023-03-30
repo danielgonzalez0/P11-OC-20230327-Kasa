@@ -16,8 +16,8 @@ const Dropdown = ({ title, desc }) => {
           <p>{desc}</p>
         ) : (
           <ul>
-            {desc.map((item) => (
-              <li>{item}</li>
+            {desc.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         ))}

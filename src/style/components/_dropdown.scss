@@ -42,3 +42,37 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .dropdown-about {
+    width: 100%;
+
+    .btn {
+      padding: 8px 20px;
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 20px;
+      min-height: 144px;
+      line-height: 25px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 520px) {
+  .dropdown-about {
+
+    .btn {
+      padding: 8px 20px;
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 12px;
+      min-height: 144px;
+      line-height: 17px;
+    }
+  }
+}

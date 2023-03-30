@@ -2,6 +2,12 @@
   .banner {
     background: url(../../assets/img/bg-montain.png) center / cover
       rgba(0, 0, 0, 0.3);
-      margin: 31px 0;
+    margin: 31px 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    .banner {
+      border-radius: 10px;
+    }
   }
 }

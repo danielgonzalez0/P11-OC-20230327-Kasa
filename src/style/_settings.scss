@@ -44,6 +44,12 @@ body {
   font-family: $font-500;
   background-color: $color-bg;
   color: $color-1;
+
+  @media screen and (max-width: 1036px) {
+    .wrapper {
+      margin: 0 5%;
+    }
+  }
 }
 
 .wrapper {
@@ -76,6 +82,8 @@ body {
   background-blend-mode: darken;
   border-radius: 25px;
 }
+
+
 
 .tag {
   color: #ffffff;

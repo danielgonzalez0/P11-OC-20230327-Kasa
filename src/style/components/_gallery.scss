@@ -23,8 +23,14 @@
     &:focus-visible {
       color: $color-1;
     }
-    &:active, &:hover {
-    color:darken($color-1, 25%);
+    &:active,
+    &:hover {
+      color: darken($color-1, 25%);
+    }
+    &:active {
+      span {
+        transform: scale(1.2);
+      }
     }
   }
 

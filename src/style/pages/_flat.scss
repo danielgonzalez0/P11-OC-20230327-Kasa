@@ -1,5 +1,4 @@
 #flat-page {
- 
   .grid-container {
     padding: 30px 0 30px 0;
     display: grid;
@@ -47,7 +46,7 @@
       max-height: 75px;
       display: flex;
       flex-wrap: wrap;
-      align-items: start;
+      align-items: flex-start;
       gap: 10px;
       li {
         height: 30px;
@@ -73,9 +72,86 @@
     display: flex;
     gap: 7%;
     p {
-        flex: 1 0 auto;
+      flex: 1 0 auto;
       font-size: 18px;
       line-height: 30px;
+    }
+
+    @media screen and (max-width: 520px) {
+      p {
+        font-size: 12px;
+        min-height: 144px;
+        line-height: 17px;
+      }
+
+      li {
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .dropdown-container {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .grid-container {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: repeat(auto-fit, minmax(25px, 1fr)) ;
+      grid-template-areas:
+        'title title'
+        'para para'
+        'tag tag'
+        'rate name';
+      align-items: center;
+
+      h1 {
+        font-size: 18px;
+        width: 75%;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .name-container {
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 10px;
+        img {
+          width: 32px;
+          height: 32px;
+        }
+        span {
+          padding-top: 0;
+          text-align: right;
+          width: 70px;
+          font-size: 13px;
+        }
+      }
+
+      .rating-list {
+        justify-self: start;
+
+        span {
+          font-size: 13px;
+          margin-right: 7px;
+        }
+      }
+      .tag-list {
+        flex-wrap: wrap;
+        li {
+          height: 18px;
+          font-size: 10px;
+          min-width: 84px;
+          padding: 2.5px 5px 0;
+        }
+      }
     }
   }
 } //id page
