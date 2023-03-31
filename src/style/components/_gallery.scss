@@ -54,3 +54,28 @@
 .hidden {
   display: none;
 }
+
+@media screen and (max-width: 700px) {
+  .gallery-container {
+    height: 255px;
+    border-radius: 10px;
+    .btn-left,
+    .btn-right {
+      font-size: 50px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 530px) {
+  .gallery-container {
+    .btn-left,
+    .btn-right {
+      font-size: 20px;
+    }
+    .counter{
+      font-size: 14px;
+    }
+
+  }
+}
