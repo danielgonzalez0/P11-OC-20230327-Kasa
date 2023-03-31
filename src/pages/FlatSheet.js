@@ -10,6 +10,7 @@ import NotFound from './NotFound';
 const FlatSheet = () => {
   const [flatData, setFlatData] = useState({});
   const [isError, setIsError] = useState(false);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -21,14 +22,23 @@ const FlatSheet = () => {
     }
   }, [location]);
 
+    // useEffect(() => {
+    //   fetch('data/data.json', {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Accept: 'application/json',
+    //     },
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => console.log(data));
+    // }, []);
+
   return (
     <>
       {isError ? (
         <NotFound />
       ) : (
         <>
-          {' '}
-          (
           {flatData && (
             <>
               <div className="wrapper" id="flat-page">
