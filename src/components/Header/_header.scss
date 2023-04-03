@@ -9,34 +9,7 @@ header {
     position: relative;
 
     .side-bar {
-      position: absolute;
-      width: 100%;
       height: 100%;
-      background: white;
-      top: 0;
-      right: 0;
-      transition: 0.3s ease-out;
-      z-index: 4;
-    }
-
-    .toggle-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      cursor: pointer;
-      height: 60px;
-      width: 60px;
-      transition: 0.3s ease-out;
-      opacity: 0;
-    }
-    .toggle-btn span {
-      width: 60px;
-      height: 10px;
-      border-radius: 5px;
-      background: $color-1;
-      display: block;
-      margin-top: 4px;
-      transition: 0.3s ease-out;
     }
 
     ul {
@@ -86,18 +59,47 @@ header {
 
   @media screen and (max-width: 520px) {
     .navigation {
+      ul {
+        font-size: 12px;
+      }
+
+      //start side bar
       .side-bar {
         position: fixed;
         width: 150px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        transition: 0.3s ease-out;
+        z-index: 4;
         background-color: $color-1;
         right: -150px;
+      }
+
+      .toggle-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        height: 60px;
+        width: 60px;
+        transition: 0.3s ease-out;
+        opacity: 1;
+        z-index: 4;
+      }
+      .toggle-btn span {
+        width: 60px;
+        height: 10px;
+        border-radius: 5px;
+        background: $color-1;
+        display: block;
+        margin-top: 4px;
+        transition: 0.3s ease-out;
       }
 
       ul {
         flex-direction: column;
         justify-content: flex-start;
-
-        // top: 50px;
         font-size: 24px;
         gap: 10px;
 
@@ -116,9 +118,6 @@ header {
           }
         }
       }
-      .toggle-btn {
-        opacity: 1;
-      }
 
       .side-bar.show-side-bar {
         /* en collant id.class pseudo element devient prioritaire sur id */
@@ -126,11 +125,13 @@ header {
       }
       .show-cross.toggle-btn {
         right: 130px;
-        top: 15px;
+        top: 0px;
       }
+
       /* code ajouté */
       .show-cross span {
         position: absolute;
+        top: 15px;
       }
 
       .show-cross span:first-child {
@@ -143,6 +144,7 @@ header {
         transform: rotate(-45deg);
       }
       /* fin code ajouté */
+      //end side bar
     }
   }
 }

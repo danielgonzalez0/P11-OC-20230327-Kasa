@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
-import Navigation from '../components/Navigation';
+import Footer from '../../components/Footer/Footer';
+import Logo from '../../components/Header/Logo';
+import Navigation from '../../components/Header/Navigation';
 
 const NotFound = () => {
   return (

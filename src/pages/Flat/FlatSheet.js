@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Dropdown from '../components/Dropdown';
-import Footer from '../components/Footer';
-import Gallery from '../components/Gallery';
-import Logo from '../components/Logo';
-import Navigation from '../components/Navigation';
-import NotFound from './NotFound';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import Footer from '../../components/Footer/Footer';
+import Gallery from '../../components/Gallery/Gallery';
+import Logo from '../../components/Header/Logo';
+import Navigation from '../../components/Header/Navigation';
+import NotFound from '../NotFound/NotFound';
 
 const FlatSheet = () => {
   const [flatData, setFlatData] = useState({});

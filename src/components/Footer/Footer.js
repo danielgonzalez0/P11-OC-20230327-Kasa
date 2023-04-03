@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../assets/img/logo-white.png';
+import logoImg from '../Footer/logo-white.png';
 
 const Footer = () => {
   return (

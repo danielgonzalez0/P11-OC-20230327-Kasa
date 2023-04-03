@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
-import FlatSheet from './pages/FlatSheet';
+import Home from '../Home/Home';
+import About from '../About/About';
+import NotFound from '../NotFound/NotFound';
+import FlatSheet from '../Flat/FlatSheet';
 
-const App = () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -18,4 +18,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Router;

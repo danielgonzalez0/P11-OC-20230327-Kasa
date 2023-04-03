@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Dropdown from '../components/Dropdown';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
-import Navigation from '../components/Navigation';
-import { aboutData } from '../data/dataAbout';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import Footer from '../../components/Footer/Footer';
+import Logo from '../../components/Header/Logo';
+import Navigation from '../../components/Header/Navigation';
+import { aboutData } from '../../data/dataAbout';
 
 const About = () => {
   const [data] = useState(aboutData);

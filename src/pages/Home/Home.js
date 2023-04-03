@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../components/Card';
-import Footer from '../components/Footer';
-import Logo from '../components/Logo';
-import Navigation from '../components/Navigation';
-import logement from '../data/logements.json';
+import Card from '../../components/Card/Card';
+import Footer from '../../components/Footer/Footer';
+import Logo from '../../components/Header/Logo';
+import Navigation from '../../components/Header/Navigation';
+import logement from '../../data/logements.json';
 
 const Home = () => {
   const [data, setData] = useState([]);
