@@ -20,7 +20,9 @@ const Home = () => {
           <Navigation />
         </header>
         <div className="banner" role="banner">
-          <h1>Chez vous, partout et ailleurs</h1>
+          <h1>
+            <span>Chez vous,</span> <span>partout et ailleurs</span>
+          </h1>
         </div>
         <main>
           {data.map((flat) => (

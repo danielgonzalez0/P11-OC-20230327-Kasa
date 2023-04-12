@@ -31,6 +31,12 @@
         max-width: 320px;
       }
     }
+
+    @media screen and (max-width: 740px) {
+      a {
+        min-width: 100%;
+      }
+    }
   }
 
   @media screen and (max-width: 930px) {
@@ -59,7 +65,13 @@
     .banner {
       justify-content: flex-start;
       height: 111px;
-      padding-right: 60px;
+      padding-right: 30px;
+      line-height: 35px;
+
+      h1 {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }

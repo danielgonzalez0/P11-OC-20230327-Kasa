@@ -8,9 +8,6 @@ const Navigation = () => {
     setActive(!isActive);
   };
 
-  // btnSidebar.addEventListener('click', () => {
-  //   sidebar.classList.toggle('hidden');
-  // });
 
   return (
     <div className="navigation">
