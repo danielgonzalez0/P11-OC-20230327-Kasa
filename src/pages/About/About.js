@@ -5,6 +5,11 @@ import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import { aboutData } from '../../data/dataAbout';
 
+
+/**
+ * react component given the html structure of the About page
+ * @returns {React.ReactElement} About
+ */
 const About = () => {
   const [data] = useState(aboutData);
   return (

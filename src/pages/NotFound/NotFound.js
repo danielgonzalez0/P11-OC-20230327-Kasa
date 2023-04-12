@@ -4,6 +4,10 @@ import Footer from '../../components/Footer/Footer';
 import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 
+/**
+ * React component given the HTML structure of the error page
+ * @returns {React.ReactElement} NotFound
+ */
 const NotFound = () => {
   return (
     <>

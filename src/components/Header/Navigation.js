@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * React component given the HTML structure of the application navigation
+ * @returns {React.ReactElement} Navigation
+ */
 const Navigation = () => {
   const [isActive, setActive] = useState('false');
 
+ 
   const handleToggle = () => {
     setActive(!isActive);
   };

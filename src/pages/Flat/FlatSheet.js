@@ -7,11 +7,16 @@ import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import NotFound from '../NotFound/NotFound';
 
+/**
+ * React component given the HTML structure of a flat location page
+ * @returns {React.ReactElement} FlatSheet
+ */
 const FlatSheet = () => {
   const [flatData, setFlatData] = useState({});
   const [isError, setIsError] = useState(false);
 
   const location = useLocation();
+
 
   useEffect(() => {
     const { state } = location;

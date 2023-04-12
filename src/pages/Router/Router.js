@@ -5,6 +5,10 @@ import About from '../About/About';
 import NotFound from '../NotFound/NotFound';
 import FlatSheet from '../Flat/FlatSheet';
 
+/**
+ * React component given the router DOM of the application
+ * @returns {React.ReactElement} Router
+ */
 const Router = () => {
   return (
     <BrowserRouter>

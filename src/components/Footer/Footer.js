@@ -1,6 +1,10 @@
 import React from 'react';
 import logoImg from '../Footer/logo-white.png';
 
+/**
+ * React component given the structure HTML of the footer
+ * @returns {React.ReactElement} Footer
+ */
 const Footer = () => {
   return (
     <footer>

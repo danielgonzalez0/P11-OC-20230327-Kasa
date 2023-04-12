@@ -5,6 +5,11 @@ import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import logement from '../../data/logements.json';
 
+
+/**
+ * react component given the html structure of the home page
+ * @returns {React.ReactElement} Home
+ */
 const Home = () => {
   const [data, setData] = useState([]);
 
