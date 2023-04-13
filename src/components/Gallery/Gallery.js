@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 /**
  * React component given the structure HTML of the image carousel
- * @param {PropTypes} gallery
+ * @param {PropTypes} gallery array of flat pictures path
+ * @param {PropTypes} tabIndex props used for accessibility behavior when mavigation sidebar is active
  * @returns {React.ReactElement} Gallery
  */
-const Gallery = ({ gallery }) => {
+const Gallery = ({ gallery, tabIndex }) => {
   const [count, setCount] = useState(0);
   const [galleryArray, setGalleryArray] = useState([]);
 
@@ -35,9 +36,9 @@ const Gallery = ({ gallery }) => {
    */
   const handleArraowNavigation = useCallback(
     (e) => {
-      if (e.code === 'ArrowLeft') {
+      if (e.code === 'ArrowLeft' && !tabIndex) {
         handleCountRemove();
-      } else if (e.code === 'ArrowRight') {
+      } else if (e.code === 'ArrowRight' && !tabIndex) {
         handleCountAdd();
       }
     },
@@ -46,6 +47,7 @@ const Gallery = ({ gallery }) => {
 
   useEffect(() => {
     setGalleryArray(gallery);
+    console.log(gallery);
   }, [gallery]);
 
   useEffect(() => {
@@ -58,12 +60,20 @@ const Gallery = ({ gallery }) => {
   return (
     <div className="gallery-container">
       {galleryArray && galleryArray.length > 1 && (
-        <button className="btn-left" onClick={handleCountRemove}>
+        <button
+          className="btn-left"
+          onClick={handleCountRemove}
+          tabIndex={tabIndex ? '-1' : '0'}
+        >
           <span className="fa-solid fa-angle-left"></span>
         </button>
       )}
       {galleryArray && galleryArray.length > 1 && (
-        <button className="btn-right" onClick={handleCountAdd}>
+        <button
+          className="btn-right"
+          onClick={handleCountAdd}
+          tabIndex={tabIndex ? '-1' : '0'}
+        >
           <span className="fa-solid fa-angle-right"></span>
         </button>
       )}
@@ -82,6 +92,7 @@ const Gallery = ({ gallery }) => {
 
 Gallery.propTypes = {
   gallery: PropTypes.arrayOf(PropTypes.string),
+  tabIndex: PropTypes.bool,
 };
 
 export default Gallery;

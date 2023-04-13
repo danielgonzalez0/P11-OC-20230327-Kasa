@@ -8,6 +8,10 @@ header {
     max-width: 300px;
     position: relative;
 
+    .toggle-btn {
+      visibility: hidden;
+    }
+
     .side-bar {
       height: 100%;
     }
@@ -73,7 +77,8 @@ header {
         transition: 0.3s ease-out;
         z-index: 4;
         background-color: $color-1;
-        right: -150px;
+        right: -170px;
+        visibility: hidden;
       }
 
       .toggle-btn {
@@ -81,9 +86,10 @@ header {
         top: 0;
         right: 0;
         cursor: pointer;
-        height: 60px;
+        height: 47px;
         width: 60px;
         transition: 0.3s ease-out;
+        visibility: visible;
         opacity: 1;
         z-index: 4;
       }
@@ -113,10 +119,12 @@ header {
           display: block;
           color: white;
           position: relative;
-        
-          &:hover {
+
+          &:hover,
+          &:focus {
             background: white;
             color: $color-1;
+            outline: none;
           }
         }
       }
@@ -124,6 +132,7 @@ header {
       .side-bar.show-side-bar {
         /* en collant id.class pseudo element devient prioritaire sur id */
         right: 0px;
+        visibility: visible;
       }
       .show-cross.toggle-btn {
         right: 130px;
