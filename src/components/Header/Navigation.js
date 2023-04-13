@@ -8,11 +8,9 @@ import { NavLink } from 'react-router-dom';
 const Navigation = () => {
   const [isActive, setActive] = useState('false');
 
- 
   const handleToggle = () => {
     setActive(!isActive);
   };
-
 
   return (
     <div className="navigation">
@@ -29,19 +27,23 @@ const Navigation = () => {
         className={`side-bar ${!isActive ? 'show-side-bar' : ''}`}
       >
         <ul>
-          <NavLink
-            to="/"
-            className={(nav) => (nav.isActive ? 'nav-active' : '')}
-          >
-            <li>Accueil</li>
-          </NavLink>
+          <li>
+            <NavLink
+              to="/"
+              className={(nav) => (nav.isActive ? 'nav-active' : '')}
+            >
+              Accueil
+            </NavLink>
+          </li>
 
-          <NavLink
-            to="/about"
-            className={(nav) => (nav.isActive ? 'nav-active' : '')}
-          >
-            <li>A Propos</li>
-          </NavLink>
+          <li>
+            <NavLink
+              to="/about"
+              className={(nav) => (nav.isActive ? 'nav-active' : '')}
+            >
+              A Propos
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

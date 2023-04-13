@@ -20,7 +20,7 @@ header {
       gap: 56px;
       font-family: $font-500;
       font-size: 24px;
-      li {
+      a {
         color: $color-1;
         position: relative;
         &:hover {
@@ -29,7 +29,7 @@ header {
         }
       }
 
-      .nav-active li:after {
+      li .nav-active:after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -103,15 +103,17 @@ header {
         font-size: 24px;
         gap: 10px;
 
-        a {
+        li {
           width: 100%;
           line-height: 45px;
           text-align: center;
         }
 
-        li {
+        a {
+          display: block;
           color: white;
           position: relative;
+        
           &:hover {
             background: white;
             color: $color-1;
