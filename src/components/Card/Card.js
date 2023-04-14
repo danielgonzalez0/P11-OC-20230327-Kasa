@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { SideBarContext } from '../AppContext/AppContext';
 
 /**
  * React component given a link to a specific flat page
  * @param {PropTypes} flat the flat id and the flat image cover are used on the card
- * @param {PropTypes} menuVisible props used for accessibility behavior when mavigation sidebar is active
  * @returns {React.ReactElement} Card with a link to specific flat page
  */
-const Card = ({ flat, menuVisible }) => {
+const Card = ({ flat }) => {
+  const { sideBarIsVisible } = useContext(SideBarContext);
+
   return (
     <NavLink
       to={'/flat/' + flat.id}
       state={{ from: flat }}
       className="card"
-      tabIndex={menuVisible === true ? '-1' : '0'}
+      tabIndex={sideBarIsVisible === true ? '-1' : '0'}
     >
       <div
         className="card-container"
@@ -42,7 +44,6 @@ Card.propTypes = {
     equipments: PropTypes.arrayOf(PropTypes.string),
     tags: PropTypes.arrayOf(PropTypes.string),
   }),
-  menuVisible: PropTypes.bool,
 };
 
 export default Card;

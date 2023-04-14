@@ -1,126 +1,154 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Footer from '../../components/Footer/Footer';
 import Gallery from '../../components/Gallery/Gallery';
 import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import NotFound from '../NotFound/NotFound';
+import logement from '../../data/logements.json';
+import { SideBarContext } from '../../components/AppContext/AppContext';
 
 /**
  * React component given the HTML structure of a flat location page
  * @returns {React.ReactElement} FlatSheet
  */
-const FlatSheet_copy = () => {
-  const [flatData, setFlatData] = useState({});
+const FlatSheet = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [sideBarVisible, setSideBarVisible] = useState(false);
+  const [flatData, setFlatData] = useState({});
+  const { sideBarIsVisible } = useContext(SideBarContext);
 
-  const location = useLocation();
+  const { id } = useParams();
 
   useEffect(() => {
-    const { state } = location;
-    if (state !== null) {
-      setFlatData(state.from);
+    console.log(id);
+    const data = logement.filter((flat) => flat.id === id);
+    if (data.length > 0) {
+      console.log(data);
+      setFlatData(data[0]);
+      setIsLoading(false);
     } else {
       setIsError(true);
+      setIsLoading(false);
     }
-  }, [location]);
+    console.log(flatData);
+    // Parcourir les data
+    // Si data.id === locId alors
+    // On change flatData
+    // on change isLoading a false
+    // Sinon
+    // on change isError a true
+    // on change isLoading a false
+  }, []);
 
-  return (
-    <>
-      {isError ? (
-        <NotFound />
-      ) : (
-        <>
-          {flatData && (
-            <>
-              <div className="wrapper" id="flat-page">
-                <header>
-                  <Logo />
-                  <Navigation menuVisible={setSideBarVisible} />
-                </header>
-                <main aria-hidden={!sideBarVisible ? false : true}>
-                  <Gallery
-                    gallery={flatData.pictures}
-                    tabIndex={sideBarVisible}
-                  />
-                  <div className="infos-container">
-                    <div className="grid-container">
-                      <h1>{flatData.title}</h1>
-                      <p>{flatData.location}</p>
-                      <div className="name-container">
-                        {flatData.host && (
-                          <>
-                            <span>{flatData.host.name}</span>
-                            <img
-                              src={flatData.host.picture}
-                              alt={flatData.host.name}
-                            />
-                          </>
-                        )}
-                      </div>
+  // useEffect(() => {
+  //   const { state } = location;
+  //   if (state !== null) {
+  //     setFlatData(state.from);
+  //   } else {
+  //     setIsError(true);
+  //   }
+  // }, [location]);
 
-                      <ul className="tag-list">
-                        {flatData.tags &&
-                          flatData.tags.map((tag, index) => (
-                            <li className="tag" key={index}>
-                              {tag}
-                            </li>
-                          ))}
-                      </ul>
-                      <ul className="rating-list">
-                        <li>
-                          {flatData.rating >= 1 ? (
-                            <span className="fa-solid fa-star rating"></span>
-                          ) : (
-                            <span className="fa-sharp fa-solid fa-star not-rating"></span>
-                          )}
-                          {flatData.rating >= 2 ? (
-                            <span className="fa-sharp fa-solid fa-star rating"></span>
-                          ) : (
-                            <span className="fa-sharp fa-solid fa-star not-rating"></span>
-                          )}
-                          {flatData.rating >= 3 ? (
-                            <span className="fa-sharp fa-solid fa-star rating"></span>
-                          ) : (
-                            <span className="fa-sharp fa-solid fa-star not-rating"></span>
-                          )}
-                          {flatData.rating >= 4 ? (
-                            <span className="fa-sharp fa-solid fa-star rating"></span>
-                          ) : (
-                            <span className="fa-sharp fa-solid fa-star not-rating"></span>
-                          )}
-                          {flatData.rating >= 5 ? (
-                            <span className="fa-sharp fa-solid fa-star rating"></span>
-                          ) : (
-                            <span className="fa-sharp fa-solid fa-star not-rating"></span>
-                          )}
-                        </li>
-                      </ul>
+  if (isLoading) {
+    return <p className="loading">chargement en cours...</p>;
+  }
+
+  if (isError) {
+    return <NotFound />;
+  }
+
+  if (!isLoading && !isError) {
+    return (
+      <>
+        {flatData && (
+          <>
+            <div className="wrapper" id="flat-page">
+              <header>
+                <Logo />
+                <Navigation />
+              </header>
+              <main aria-hidden={!sideBarIsVisible ? false : true}>
+                <Gallery
+                  gallery={flatData.pictures}
+                  tabIndex={sideBarIsVisible}
+                />
+                <div className="infos-container">
+                  <div className="grid-container">
+                    <h1>{flatData.title}</h1>
+                    <p>{flatData.location}</p>
+                    <div className="name-container">
+                      {flatData.host && (
+                        <>
+                          <span>{flatData.host.name}</span>
+                          <img
+                            src={flatData.host.picture}
+                            alt={flatData.host.name}
+                          />
+                        </>
+                      )}
                     </div>
+
+                    <ul className="tag-list">
+                      {flatData.tags &&
+                        flatData.tags.map((tag, index) => (
+                          <li className="tag" key={index}>
+                            {tag}
+                          </li>
+                        ))}
+                    </ul>
+                    <ul className="rating-list">
+                      <li>
+                        {flatData.rating >= 1 ? (
+                          <span className="fa-solid fa-star rating"></span>
+                        ) : (
+                          <span className="fa-sharp fa-solid fa-star not-rating"></span>
+                        )}
+                        {flatData.rating >= 2 ? (
+                          <span className="fa-sharp fa-solid fa-star rating"></span>
+                        ) : (
+                          <span className="fa-sharp fa-solid fa-star not-rating"></span>
+                        )}
+                        {flatData.rating >= 3 ? (
+                          <span className="fa-sharp fa-solid fa-star rating"></span>
+                        ) : (
+                          <span className="fa-sharp fa-solid fa-star not-rating"></span>
+                        )}
+                        {flatData.rating >= 4 ? (
+                          <span className="fa-sharp fa-solid fa-star rating"></span>
+                        ) : (
+                          <span className="fa-sharp fa-solid fa-star not-rating"></span>
+                        )}
+                        {flatData.rating >= 5 ? (
+                          <span className="fa-sharp fa-solid fa-star rating"></span>
+                        ) : (
+                          <span className="fa-sharp fa-solid fa-star not-rating"></span>
+                        )}
+                      </li>
+                    </ul>
                   </div>
-                  <div className="dropdown-container">
-                    <Dropdown
-                      title={'Description'}
-                      desc={flatData.description}
-                      tabIndex={sideBarVisible}
-                    />
-                    <Dropdown
-                      title={'Équipements'}
-                      desc={flatData.equipments}
-                      tabIndex={sideBarVisible}
-                    />
-                  </div>
-                </main>
-              </div>
-              <Footer />
-            </>
-          )}
-        </>
-      )}
-    </>
-  );
+                </div>
+                <div className="dropdown-container">
+                  <Dropdown
+                    title={'Description'}
+                    desc={flatData.description}
+                    tabIndex={sideBarIsVisible}
+                  />
+                  <Dropdown
+                    title={'Équipements'}
+                    desc={flatData.equipments}
+                    tabIndex={sideBarIsVisible}
+                  />
+                </div>
+              </main>
+            </div>
+            <Footer />
+          </>
+        )}
+      </>
+    );
+  }
 };
 
-export default FlatSheet_copy;
+export default FlatSheet;

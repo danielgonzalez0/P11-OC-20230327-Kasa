@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import Footer from '../../components/Footer/Footer';
 import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import logement from '../../data/logements.json';
+import { SideBarContext } from '../../components/AppContext/AppContext';
 
 /**
  * react component given the html structure of the home page
@@ -11,7 +12,7 @@ import logement from '../../data/logements.json';
  */
 const Home = () => {
   const [data, setData] = useState([]);
-  const [sideBarVisible, setSideBarVisible] = useState(false);
+  const { sideBarIsVisible } = useContext(SideBarContext);
 
   useEffect(() => {
     setData(logement);
@@ -22,16 +23,16 @@ const Home = () => {
       <div className="wrapper" id="home">
         <header>
           <Logo />
-          <Navigation menuVisible={setSideBarVisible} />
+          <Navigation />
         </header>
         <div className="banner" role="banner">
           <h1>
             <span>Chez vous,</span> <span>partout et ailleurs</span>
           </h1>
         </div>
-        <main aria-hidden={!sideBarVisible ? false : true}>
+        <main aria-hidden={sideBarIsVisible === false ? false : true}>
           {data.map((flat) => (
-            <Card key={flat.id} flat={flat} menuVisible={sideBarVisible} />
+            <Card key={flat.id} flat={flat} />
           ))}
         </main>
       </div>

@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { SideBarContext } from '../AppContext/AppContext';
 
 /**
  * React component given the structure of a Dropdown element
  * @param {PropTypes} title dropdown title
  * @param {PropTypes} desc dropdown contain
- * @param {PropTypes} tabIndex props used for accessibility behavior when mavigation sidebar is active
  * @returns {React.ReactElement} Dropdown
  */
-const Dropdown = ({ title, desc, tabIndex }) => {
+const Dropdown = ({ title, desc }) => {
   const [open, setOpen] = useState(false);
+  const { sideBarIsVisible } = useContext(SideBarContext);
 
   return (
     <div className="dropdown-about">
       <button
         className="btn"
         onClick={() => setOpen(!open)}
-        tabIndex={tabIndex ? '-1' : '0'}
+        tabIndex={sideBarIsVisible === true ? '-1' : '0'}
+        aria-hidden={!sideBarIsVisible ? false : true}
       >
         {title}
         <i
@@ -43,7 +45,6 @@ Dropdown.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
-  tabIndex: PropTypes.bool,
 };
 
 export default Dropdown;

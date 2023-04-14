@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Footer from '../../components/Footer/Footer';
 import Logo from '../../components/Header/Logo';
 import Navigation from '../../components/Header/Navigation';
 import { aboutData } from '../../data/dataAbout';
+import { SideBarContext } from '../../components/AppContext/AppContext';
 
 /**
  * react component given the html structure of the About page
@@ -11,18 +12,18 @@ import { aboutData } from '../../data/dataAbout';
  */
 const About = () => {
   const [data] = useState(aboutData);
-  const [sideBarVisible, setSideBarVisible] = useState(false);
+  const { sideBarIsVisible } = useContext(SideBarContext);
   return (
     <>
       <div className="wrapper" id="about">
         <header>
           <Logo />
-          <Navigation menuVisible={setSideBarVisible} />
+          <Navigation />
         </header>
         <div className="banner" role="banner"></div>
         <div
           className="about-content"
-          aria-hidden={!sideBarVisible ? false : true}
+          aria-hidden={!sideBarIsVisible ? false : true}
         >
           {data.map((quality, index) => {
             return (
@@ -30,7 +31,6 @@ const About = () => {
                 key={index}
                 title={quality.title}
                 desc={quality.description}
-                tabIndex={sideBarVisible}
               />
             );
           })}

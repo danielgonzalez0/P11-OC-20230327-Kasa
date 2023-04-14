@@ -1,15 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { SideBarContext } from '../AppContext/AppContext';
 
 /**
  * React component given the structure HTML of the image carousel
  * @param {PropTypes} gallery array of flat pictures path
- * @param {PropTypes} tabIndex props used for accessibility behavior when mavigation sidebar is active
  * @returns {React.ReactElement} Gallery
  */
-const Gallery = ({ gallery, tabIndex }) => {
+const Gallery = ({ gallery }) => {
   const [count, setCount] = useState(0);
   const [galleryArray, setGalleryArray] = useState([]);
+  const { sideBarIsVisible } = useContext(SideBarContext);
 
   /**
    * logic of adding 1 to the useState count
@@ -34,11 +35,11 @@ const Gallery = ({ gallery, tabIndex }) => {
   /**
    * logic of the keyboard navigation for the image gallery
    */
-  const handleArraowNavigation = useCallback(
+  const handleArrowNavigation = useCallback(
     (e) => {
-      if (e.code === 'ArrowLeft' && !tabIndex) {
+      if (e.code === 'ArrowLeft' && sideBarIsVisible === false) {
         handleCountRemove();
-      } else if (e.code === 'ArrowRight' && !tabIndex) {
+      } else if (e.code === 'ArrowRight' && sideBarIsVisible === false) {
         handleCountAdd();
       }
     },
@@ -46,16 +47,10 @@ const Gallery = ({ gallery, tabIndex }) => {
   );
 
   useEffect(() => {
-    setGalleryArray(gallery);
-    console.log(gallery);
-  }, [gallery]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleArraowNavigation);
-    return function cleanup() {
-      document.removeEventListener('keydown', handleArraowNavigation);
-    };
-  });
+      setGalleryArray(gallery);
+    document.addEventListener('keydown', handleArrowNavigation);
+    return () => document.removeEventListener('keydown', handleArrowNavigation);
+  }, [handleArrowNavigation]);
 
   return (
     <div className="gallery-container">
@@ -63,7 +58,8 @@ const Gallery = ({ gallery, tabIndex }) => {
         <button
           className="btn-left"
           onClick={handleCountRemove}
-          tabIndex={tabIndex ? '-1' : '0'}
+          tabIndex={sideBarIsVisible === true ? '-1' : '0'}
+          aria-hidden={!sideBarIsVisible ? false : true}
         >
           <span className="fa-solid fa-angle-left"></span>
         </button>
@@ -72,7 +68,8 @@ const Gallery = ({ gallery, tabIndex }) => {
         <button
           className="btn-right"
           onClick={handleCountAdd}
-          tabIndex={tabIndex ? '-1' : '0'}
+          tabIndex={sideBarIsVisible === true ? '-1' : '0'}
+          aria-hidden={!sideBarIsVisible ? false : true}
         >
           <span className="fa-solid fa-angle-right"></span>
         </button>
@@ -92,7 +89,6 @@ const Gallery = ({ gallery, tabIndex }) => {
 
 Gallery.propTypes = {
   gallery: PropTypes.arrayOf(PropTypes.string),
-  tabIndex: PropTypes.bool,
 };
 
 export default Gallery;
