@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Footer from '../../components/Footer/Footer';
 import Gallery from '../../components/Gallery/Gallery';
@@ -32,24 +32,7 @@ const FlatSheet = () => {
       setIsError(true);
       setIsLoading(false);
     }
-    console.log(flatData);
-    // Parcourir les data
-    // Si data.id === locId alors
-    // On change flatData
-    // on change isLoading a false
-    // Sinon
-    // on change isError a true
-    // on change isLoading a false
   }, []);
-
-  // useEffect(() => {
-  //   const { state } = location;
-  //   if (state !== null) {
-  //     setFlatData(state.from);
-  //   } else {
-  //     setIsError(true);
-  //   }
-  // }, [location]);
 
   if (isLoading) {
     return <p className="loading">chargement en cours...</p>;
