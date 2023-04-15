@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+<p align="center">
+<img src="https://img.shields.io/badge/VERCEL-Deployed-brightgreen?style=for-the-badge&logo=vercel">
+<img src="https://img.shields.io/badge/Create%20with-React-blue?style=for-the-badge&logo=react">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Application Kasa with React
 
-## Available Scripts
+The project is part of a front-end training course specialising in  React delivery by openclassrooms.
 
-In the project directory, you can run:
+training link : https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react
 
-### `npm start`
+Project goal: develop a web application with React and React Router from a figma model
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Figma template: [click here](https://www.figma.com/file/bAnXDNqRKCRRP8mY2gcb5p/UI-Design-Kasa-FR?node-id=4-1&t=Lr3ACrX2KZJpW6J2-0)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technical requirements: [guidelines_kasa.pdf](https://github.com/danielgonzalez0/P11-OC-20230327-Kasa/files/11240199/Coding%2Bguidelines%2BKasa%2BFR.pdf)
 
-### `npm test`
+## Version
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+version 1 
 
-### `npm run build`
+### Project Deployment link: 
+[link](https://p11-oc-20230327-kasa.vercel.app/)
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- react router 
+- functional components
+- burger menu for navigation
+- carousel for image galleries
+- keyboard navigation for image galleries
+- responsive design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Client:** React, react-router-dom, Sass
 
-### `npm run eject`
+**Server:** none
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Required
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[![Node.js](https://custom-icon-badges.demolab.com/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[![NPM](https://img.shields.io/badge/-NPM-CC3534?logo=npm&logoColor=white&style=for-the-badge)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+clone project
 
-## Learn More
+```bash
+  git clone https://github.com/danielgonzalez0/P11-OC-20230327-Kasa.git
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Go to the project directory
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  cd my-project
+```
 
-### Code Splitting
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm install
+```
 
-### Analyzing the Bundle Size
+launch server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  npm run start
+```
+## Demo
 
-### Making a Progressive Web App
+![react-kasa-anime](https://user-images.githubusercontent.com/86351071/232248127-f7a0e9ac-233e-473c-9337-4acaf578e718.gif)
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### mobile version
 
-### Advanced Configuration
+![mobile-kasa](https://user-images.githubusercontent.com/86351071/232247150-4858f6c6-508b-4e88-bf79-af5943f682f5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## 🚀 About Me
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I am currently retraining to become a front-end developer and am taking the Application Developer - JavaScript React course at OpenClassrooms.
 
-### `npm run build` fails to minify
+The objective of this training is to acquire a specialization in front-end and to consolidate the knowledge that I obtained during my previous training in web development.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The ultimate goal is to find a first position as a junior web developer to perfect my skills and gain more experience.
+
+I am a professional with many years of experience in controlling and accounting, combined with a solid higher education background. I am able to function independently, and I have a strong sense of organisation and proven analytical and synthesis skills.
+
+I am empathetic and rigorous by nature, I listen to others and I can easily work in a team.
+
