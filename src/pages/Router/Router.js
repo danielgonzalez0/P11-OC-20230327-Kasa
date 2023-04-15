@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../Home/Home';
 import About from '../About/About';
@@ -10,6 +10,8 @@ import FlatSheet from '../Flat/FlatSheet';
  * @returns {React.ReactElement} Router
  */
 const Router = () => {
+
+
   return (
     <BrowserRouter>
       <Routes>

@@ -8,7 +8,7 @@ import { SideBarContext } from '../AppContext/AppContext';
  */
 const Navigation = () => {
   const [isActive, setActive] = useState(false);
-  const { sideBarIsVisible, toggleSideBar } = useContext(SideBarContext);
+  const { setSideBarIsVisible, toggleSideBar } = useContext(SideBarContext);
 
   const handleToggle = (e) => {
     e.preventDefault();
@@ -22,6 +22,15 @@ const Navigation = () => {
       toggleSideBar();
     }
   };
+  // const sideBarIsNotvisible = () => {
+  //   setSideBarIsVisible(false);
+  // };
+
+  // const sideBarIsNotvisibleKeyboard = (e) => {
+  //   if (e.keyCode === 13) {
+  //     setSideBarIsVisible(false);
+  //   }
+  // };
 
   return (
     <div className="navigation">

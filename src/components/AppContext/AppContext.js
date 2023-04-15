@@ -1,7 +1,6 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-
 //Use context for sidebar menu
 export const SideBarContext = createContext(false);
 
@@ -14,12 +13,13 @@ export const SideBarProvider = ({ children }) => {
   };
 
   return (
-    <SideBarContext.Provider value={{ sideBarIsVisible, toggleSideBar }}>
+    <SideBarContext.Provider
+      value={{ sideBarIsVisible, setSideBarIsVisible, toggleSideBar }}
+    >
       {children}
     </SideBarContext.Provider>
   );
 };
-
 
 //PropTypes declaration
 SideBarProvider.propTypes = {

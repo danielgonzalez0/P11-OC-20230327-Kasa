@@ -12,10 +12,11 @@ import { SideBarContext } from '../../components/AppContext/AppContext';
  */
 const Home = () => {
   const [data, setData] = useState([]);
-  const { sideBarIsVisible } = useContext(SideBarContext);
+  const { sideBarIsVisible, setSideBarIsVisible } = useContext(SideBarContext);
 
   useEffect(() => {
     setData(logement);
+    setSideBarIsVisible(false);
   }, []);
 
   return (
