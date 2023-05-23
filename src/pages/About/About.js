@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import Footer from '../../components/Footer/Footer';
 import Logo from '../../components/Header/Logo';
@@ -12,7 +12,11 @@ import { SideBarContext } from '../../components/AppContext/AppContext';
  */
 const About = () => {
   const [data] = useState(aboutData);
-  const { sideBarIsVisible } = useContext(SideBarContext);
+  const { sideBarIsVisible, setSideBarIsVisible } = useContext(SideBarContext);
+
+  useEffect(() => {
+    setSideBarIsVisible(false);
+  }, []);
   return (
     <>
       <div className="wrapper" id="about">

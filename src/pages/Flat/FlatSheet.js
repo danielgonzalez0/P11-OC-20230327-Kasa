@@ -22,10 +22,8 @@ const FlatSheet = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
     const data = logement.filter((flat) => flat.id === id);
     if (data.length > 0) {
-      console.log(data);
       setFlatData(data[0]);
       setIsLoading(false);
     } else {

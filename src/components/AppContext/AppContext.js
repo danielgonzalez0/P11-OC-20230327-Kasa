@@ -8,8 +8,7 @@ export const SideBarProvider = ({ children }) => {
   const [sideBarIsVisible, setSideBarIsVisible] = useState(false);
 
   const toggleSideBar = () => {
-    setSideBarIsVisible(sideBarIsVisible === false ? true : false);
-    console.log('side bar visible = ' + sideBarIsVisible);
+    setSideBarIsVisible(!sideBarIsVisible);
   };
 
   return (
